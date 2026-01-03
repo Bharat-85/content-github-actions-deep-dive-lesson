@@ -44,3 +44,18 @@ jobs:
         with:
           name: zipped-bundle
           path: ${{ github.sha }}.zip
+          
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: create release 
+        uses: actions/create-release@v1
+        env: 
+          GITHUB_TOKEN: ${{ secrets.github_token }}
+        with: 
+          tag_name: ${{ github.run_number }}
+          release_name: Release from Bharat task- ${{ github.run_number }}
+          body: New release for Bharat changes- ${{ gihub.sha }}. Release note on doc-site.
+          draft: false
+          prerelease: false
