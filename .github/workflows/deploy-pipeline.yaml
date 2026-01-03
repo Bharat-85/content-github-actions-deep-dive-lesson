@@ -56,6 +56,6 @@ jobs:
         with: 
           tag_name: ${{ github.run_number }}
           release_name: Release from Bharat task- ${{ github.run_number }}
-          body: New release for Bharat changes- ${{ gihub.sha }}. Release note on doc-site.
+          body: New release for Bharat changes- ${{ github.sha }}. Release note on doc-site.
           draft: false
           prerelease: false
