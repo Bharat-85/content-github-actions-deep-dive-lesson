@@ -82,6 +82,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: eu-west-2
       - name: Upload artifacts to S3
         run: aws s3 cp  ${{ github.sha }}.zip s3://testing-bharat-github-action/${{ github.sha }}.zip
